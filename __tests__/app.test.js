@@ -12,16 +12,17 @@ describe('backend-anyapi routes', () => {
   afterAll(() => {
     pool.end();
   });
-});
 
-it('creates a cat', async () => {
-  const expected = {
-    name: 'Tilly',
-    age: 2,
-    favoriteTreat: 'canned food'
-  };
-
-  const res = await request(app).post('/api/v1/cats').send(expected);
-
-  expect(res.body).toEqual({ id: expect.any(String), ...expected });
+  it('creates a cat', async () => {
+    const expected = {
+      name: 'Tilly',
+      age: 2,
+      favoriteTreat: 'canned food'
+    };
+  
+    const res = await request(app).post('/api/v1/cats').send(expected);
+  
+    expect(res.body).toEqual({ id: expect.any(String), ...expected });
+  });
+  
 });

@@ -25,4 +25,12 @@ describe('backend-anyapi routes', () => {
     expect(res.body).toEqual({ id: expect.any(String), ...expected });
   });
   
+  it('gets a list of cats', async () => {
+    const expected = await Cat.findAll();
+    const res = await request(app).get('/api/v1/cats');
+
+    expect(res.body).toEqual(expected);
+  });
+
 });
+

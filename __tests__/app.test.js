@@ -32,5 +32,11 @@ describe('backend-anyapi routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('gets a dog by id', async () => {
+    const expected = await Cat.findById(1);
+    const res = await request(app).get(`/apo/v1/cats/${expected.id}`);
+
+    expect(res.body).toEqual({ ...expected });
+  });
 });
 

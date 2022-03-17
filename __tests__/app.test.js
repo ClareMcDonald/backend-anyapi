@@ -48,8 +48,8 @@ describe('backend-anyapi routes', () => {
   it('updates a cat by id', async () => {
     const expected = {
       id: expect.any(String),
-      name: 'Tilly',
-      age: 2,
+      name: 'Lila',
+      age: 13,
       favoriteTreat: 'chicken'
     };
     const res = await request(app)

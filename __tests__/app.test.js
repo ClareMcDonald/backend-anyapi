@@ -44,5 +44,19 @@ describe('backend-anyapi routes', () => {
 
     expect(res.body).toEqual({ ...returnedCat.body });
   });
+
+  it('updates a cat by id', async () => {
+    const expected = {
+      id: expect.any(String),
+      name: 'Tilly',
+      age: 2,
+      favoriteTreat: 'chicken'
+    };
+    const res = await request(app)
+      .patch('/api/v1/cats/1')
+      .send({ favoriteTreat: 'chicken' });
+    
+    expect(res.body).toEqual(expected);
+  });
 });
 

@@ -9,3 +9,8 @@ CREATE TABLE cats (
     favorite_treat TEXT
 );
 
+INSERT INTO
+  cats (name, age, favorite_treat)
+VALUES
+  ('Lila', 13, 'Chicken'),
+  ('Freddy', 16, 'Tuna');

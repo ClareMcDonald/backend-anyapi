@@ -32,11 +32,17 @@ describe('backend-anyapi routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it('gets a dog by id', async () => {
-    const expected = await Cat.findById(1);
-    const res = await request(app).get(`/apo/v1/cats/${expected.id}`);
+  it('gets a cat by id', async () => {
+    const cat = {
+      name: 'Tilly',
+      age: 2,
+      favoriteTreat: 'canned food'
+    };
+    const returnedCat = await request(app).post('/api/v1/cats').send(cat);
+    // const expected = await Cat.findById(returnedCat.id);
+    const res = await request(app).get(`/api/v1/cats/${returnedCat.body.id}`);
 
-    expect(res.body).toEqual({ ...expected });
+    expect(res.body).toEqual({ ...returnedCat.body });
   });
 });
 

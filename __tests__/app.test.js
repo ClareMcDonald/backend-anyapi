@@ -58,5 +58,12 @@ describe('backend-anyapi routes', () => {
     
     expect(res.body).toEqual(expected);
   });
+
+  it('deletes a cat by id', async () => {
+    const expected = await Cat.findById(1);
+    const res = await request(app).delete(`/api/v1/cats/${expected.id}`);
+
+    expect(res.body).toEqual(expected);
+  });
 });
 
